@@ -1,9 +1,6 @@
 package DXvalley.AutomatedAgrofinancingBackend.Models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -34,6 +31,9 @@ public class LoanProcessingDocs {
     private String  others;
     private  String userName;
     private String landOwerCertificate;
+    @OneToOne(cascade = CascadeType.ALL)
+    private LoanApplicaton loanApplicaton;
+
     public LoanProcessingDocs(String spouseTinNum, String investmentLicence, String  applicationLetter, String tradeCertificate, String taxClearanceCertificate,
                               String applicanttinNum, String marriageCertificatee, String modelFarmerCertiricate, String collateral, String auditReport, String financeStatement,
                               String  assetList, String  performaInvoice, String projectTitle, String investmentAgreement, String  others, String userName, String landOwerCertificate){
@@ -57,6 +57,5 @@ public class LoanProcessingDocs {
         this.landOwerCertificate=landOwerCertificate;
 
     }
-
 
 }

@@ -25,11 +25,13 @@ public class Address {
     private String woreda;
     private  String kebele;
     private String  phoneNum;
+    private String ownerUserName;
     private  String houseNum;
-        public Address(String region, String zone, String city, String subcity, String woreda, String kebele,  String phoneNum, String houseNum){
+        public Address(String region, String zone, String city, String ownerUserName, String subcity, String woreda, String kebele,  String phoneNum, String houseNum){
             this.region =region;
             this.zone =zone;
             this.city = city;
+            this.ownerUserName=ownerUserName;
             this.subcity= subcity;
             this.woreda =woreda;
             this.kebele= kebele;

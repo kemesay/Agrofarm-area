@@ -1,8 +1,5 @@
 package DXvalley.AutomatedAgrofinancingBackend.Models;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -20,14 +17,17 @@ public class FarmArea {
     private  String latitude;
     private  String width ;
     private String height;
-    private String landCertificate;
 
-    public FarmArea(String longitude, String latitude, String width, String height, String landCertificate){
+    @ManyToOne
+    @JoinColumn(name = "farmer_Id")
+    private Farmer farmer;
+
+    public FarmArea(String longitude, String latitude, String width, String height){
         this.longitude=longitude;
         this.width= width;
         this.height= height;
         this.latitude = latitude;
-        this.landCertificate = landCertificate;
+
 
     }
 
